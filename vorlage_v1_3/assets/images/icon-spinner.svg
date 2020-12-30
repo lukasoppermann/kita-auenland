@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg class="rotating" width="20px" height="20px" viewBox="-4 -4 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		<path class="us-icon-spinner-circle" d="M6,2 C3.794,2 2,3.794 2,6 C2,8.206 3.794,10 6,10 C8.206,10 10,8.206 10,6 C10,3.794 8.206,2 6,2 M6,12 C2.691,12 0,9.309 0,6 C0,2.691 2.691,0 6,0 C9.309,0 12,2.691 12,6 C12,9.309 9.309,12 6,12" fill="#E2DED5"></path>
+		<path class="us-icon-spinner-element" d="M6,12 C5.448,12 5,11.553 5,11 C5,10.447 5.448,10 6,10 C8.206,10 10,8.206 10,6 C10,5.448 10.447,5 11,5 C11.553,5 12,5.448 12,6 C12,9.309 9.309,12 6,12" fill="#3A362E"></path>
+	</g>
+</svg>
