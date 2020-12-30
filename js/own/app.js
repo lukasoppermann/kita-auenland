@@ -42,51 +42,6 @@ function App() {
         }
 
 
-        ////////////////////////////////////////////
-        /////////////// SLIDER //////////////////////
-        ////////////////////////////////////////////
-
-		
-		// OLD SLIDER JS:
-		
-        /*var $slideshowWrapper = $('.slideshow-wrapper');
-        if ($slideshowWrapper.length) {
-
-            // check if autoplay is active
-            var autoplay = $slideshowWrapper.attr("slide-autoplay");
-			var $animation = $slideshowWrapper.attr("animation-type");
-			
-            if (autoplay) {
-                // create the unslider
-                var $slider = $slideshowWrapper.unslider({
-					animation: $animation,
-                    autoplay: true,
-                    delay: 5000,
-                    arrows: {
-                        prev: '<a class="unslider-arrow prev"><i us-icon="prev-slide"></i></a>',
-                        next: '<a class="unslider-arrow next"><i us-icon="next-slide"></i></a>'
-                    }
-                });
-            } else {
-                // create the unslider
-                var $slider = $slideshowWrapper.unslider({
-					animation: $animation,
-                    arrows: {
-                        prev: '<a class="unslider-arrow prev"><i us-icon="prev-slide"></i></a>',
-                        next: '<a class="unslider-arrow next"><i us-icon="next-slide"></i></a>'
-                    }
-                });
-            }
-
-
-            // store it in the app-object
-            app.slider = {};
-            app.slider.$el = $slider;
-            app.slider.data = $slider.data('unslider');
-
-            //TODO: Handle multiple instances of sliders (i.e. one at the top and bottom of the page)
-        }*/
-		
 		
 		
 		// NEW SLIDER JS:
@@ -256,89 +211,89 @@ function App() {
 
     // sample markup: <a class="popup" data-ajax-link="myCoolLink.html"></a>
 
-    if (jQuery().magnificPopup) {
-        console.log('looking for popups');
-        $popups = $('.popup');
+    // if (jQuery().magnificPopup) {
+    //     console.log('looking for popups');
+    //     $popups = $('.popup');
 
-        $popups.each(function () {
-            var $this = $(this),
-                $link = $('> a', $this).attr('href') || $this.attr('data-ajax-link');
+    //     $popups.each(function () {
+    //         var $this = $(this),
+    //             $link = $('> a', $this).attr('href') || $this.attr('data-ajax-link');
 
-            console.log('$link', $link);
+    //         console.log('$link', $link);
 
-            if ($this.hasClass('gallery')) {
-                var galleryImages = $this.data('links').split(',');
-                var items = [];
-                for (var i = 0; i < galleryImages.length; i++) {
-                    items.push({
-                        src: galleryImages[i],
-                        title: ''
-                    });
-                }
-                $this.magnificPopup({
-                    mainClass: 'mfp-fade',
-                    items: items,
-                    gallery: {
-                        enabled: true,
-                        tPrev: $(this).data('prev-text'),
-                        tNext: $(this).data('next-text')
-                    },
-                    type: 'image'
-                });
-            } else {
-                $this.magnificPopup({
-                    items: {
-                        src: $link,
-                        type: 'ajax'
-                    },
-                    removalDelay: 300,
-                    mainClass: 'mfp-fade',
-                    callbacks: {
-                        parseAjax: function (mfpResponse) {
-                            // mfpResponse.data is a "data" object from ajax "success" callback
-                            // for simple HTML file, it will be just String
-                            // You may modify it to change contents of the popup
-                            // For example, to show just #some-element:
-                            // mfpResponse.data = $(mfpResponse.data).find('#some-element');
+    //         if ($this.hasClass('gallery')) {
+    //             var galleryImages = $this.data('links').split(',');
+    //             var items = [];
+    //             for (var i = 0; i < galleryImages.length; i++) {
+    //                 items.push({
+    //                     src: galleryImages[i],
+    //                     title: ''
+    //                 });
+    //             }
+    //             $this.magnificPopup({
+    //                 mainClass: 'mfp-fade',
+    //                 items: items,
+    //                 gallery: {
+    //                     enabled: true,
+    //                     tPrev: $(this).data('prev-text'),
+    //                     tNext: $(this).data('next-text')
+    //                 },
+    //                 type: 'image'
+    //             });
+    //         } else {
+    //             $this.magnificPopup({
+    //                 items: {
+    //                     src: $link,
+    //                     type: 'ajax'
+    //                 },
+    //                 removalDelay: 300,
+    //                 mainClass: 'mfp-fade',
+    //                 callbacks: {
+    //                     parseAjax: function (mfpResponse) {
+    //                         // mfpResponse.data is a "data" object from ajax "success" callback
+    //                         // for simple HTML file, it will be just String
+    //                         // You may modify it to change contents of the popup
+    //                         // For example, to show just #some-element:
+    //                         // mfpResponse.data = $(mfpResponse.data).find('#some-element');
 
-                            // mfpResponse.data must be a String or a DOM (jQuery) element
-                            //console.log('Hello???');
-                            console.log('Ajax content loaded:', mfpResponse);
-                            //mfpResponse.data = $(mfpResponse.data).find('body');
-                            var responseDOM,
-                                parser = new DOMParser(),
-                                doc = parser.parseFromString(mfpResponse.data, "application/xhtml+xml");
+    //                         // mfpResponse.data must be a String or a DOM (jQuery) element
+    //                         //console.log('Hello???');
+    //                         console.log('Ajax content loaded:', mfpResponse);
+    //                         //mfpResponse.data = $(mfpResponse.data).find('body');
+    //                         var responseDOM,
+    //                             parser = new DOMParser(),
+    //                             doc = parser.parseFromString(mfpResponse.data, "application/xhtml+xml");
 
-                            console.log('doc', doc);
-                        },
-                        ajaxContentAdded: function () {
-                            // Ajax content is loaded and appended to DOM
-                            console.log('this.content', this.content);
-                        }
-                    }
-                });
-            }
+    //                         console.log('doc', doc);
+    //                     },
+    //                     ajaxContentAdded: function () {
+    //                         // Ajax content is loaded and appended to DOM
+    //                         console.log('this.content', this.content);
+    //                     }
+    //                 }
+    //             });
+    //         }
 
 
-            // Add it after jquery.magnific-popup.js and before first initialization code
-            $.extend(true, $.magnificPopup.defaults, {
-                tClose: 'Schließen (Esc)', // Alt text on close button
-                tLoading: 'Wird geladen...', // Text that is displayed during loading. Can contain %curr% and %total% keys
-                gallery: {
-                    tPrev: 'Zurück (Linke Pfeiltaste)', // Alt text on left arrow
-                    tNext: 'Vorwärts (Rechte Pfeiltaste)', // Alt text on right arrow
-                    tCounter: '%curr% von %total%' // Markup for "1 of 7" counter
-                },
-                image: {
-                    tError: '<a href="%url%">Das Bild</a> konnte nicht geladen werden.' // Error message when image could not be loaded
-                },
-                ajax: {
-                    tError: '<a href="%url%">Der Inhalt</a> konnte nicht geladen werden.' // Error message when ajax request failed
-                }
-            });
+    //         // Add it after jquery.magnific-popup.js and before first initialization code
+    //         $.extend(true, $.magnificPopup.defaults, {
+    //             tClose: 'Schließen (Esc)', // Alt text on close button
+    //             tLoading: 'Wird geladen...', // Text that is displayed during loading. Can contain %curr% and %total% keys
+    //             gallery: {
+    //                 tPrev: 'Zurück (Linke Pfeiltaste)', // Alt text on left arrow
+    //                 tNext: 'Vorwärts (Rechte Pfeiltaste)', // Alt text on right arrow
+    //                 tCounter: '%curr% von %total%' // Markup for "1 of 7" counter
+    //             },
+    //             image: {
+    //                 tError: '<a href="%url%">Das Bild</a> konnte nicht geladen werden.' // Error message when image could not be loaded
+    //             },
+    //             ajax: {
+    //                 tError: '<a href="%url%">Der Inhalt</a> konnte nicht geladen werden.' // Error message when ajax request failed
+    //             }
+    //         });
 
-        });
-    }
+    //     });
+    // }
 
 
     ////////////////////////////////////////////////////////

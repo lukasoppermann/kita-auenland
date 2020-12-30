@@ -2419,3 +2419,7 @@ section.vg-title-section .style-dark .column-section-header:after {
 	}
 	
 }
+
+.column {
+    float: left;
+}

@@ -15,8 +15,15 @@
 
 
     function md_script_enqueue(){
-		
-		$translation_array = array( 'templateUrl' => get_template_directory_uri(), 'stylesheetUrl' => get_stylesheet_directory_uri() );
+        
+        wp_enqueue_style( 'fonts-asap-1', get_stylesheet_directory_uri() . '/fonts/webfontkit-20131108-050617/stylesheet.css', '', '1.0.0', 'all' );
+        wp_enqueue_style( 'fonts-asap-2', get_stylesheet_directory_uri() . '/fonts/webfontkit-20131108-050649/stylesheet.css', '', '1.0.0', 'all' );
+        wp_enqueue_style( 'fonts-gochihand', get_stylesheet_directory_uri() . '/fonts/webfontkit-20180213-150648/stylesheet.css', '', '1.0.0', 'all' );
+        wp_enqueue_style( 'fonts-google', 'https://fonts.googleapis.com/css?family=Boogaloo' );
+
+        $translation_array = array( 'templateUrl' => get_template_directory_uri(), 'stylesheetUrl' => get_stylesheet_directory_uri() );
+        
+
 		
         wp_enqueue_style('style', get_template_directory_uri() . '/css/style.css', array(), '1.0.0', 'screen');
         wp_enqueue_style('magnific_css', get_template_directory_uri() . '/css/magnific-popup.css', array(), '1.0.0', 'screen');
